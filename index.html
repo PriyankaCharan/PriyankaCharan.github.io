@@ -1,0 +1,1188 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Priyanka Andrew Charan</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Priyanka Andrew Charan: Business Intelligence Lead. Databricks, Tableau and SQL work across healthcare, finance and media.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; }
+
+/* Layout: a single reading column with a "data lineage" spine on the left; sections are
+   labelled like layers of a pipeline, because that is how she thinks about data. */
+:root {
+  --paper: #F2F5F4;      /* cool clinical off-white */
+  --panel: #FFFFFF;
+  --ink: #142229;        /* deep blue-black */
+  --muted: #4E6068;
+  --line: #CFD9DB;
+  --accent: #0B6E79;     /* lab teal */
+  --accent-ink: #FFFFFF;
+  --gold: #B8791A;       /* "gold layer" marigold, used sparingly */
+  --chip: #E3ECEC;
+  --hero-a: #0B4A52; --hero-b: #123540; --hero-ink: #F2F7F7; --hero-muted: #B9D3D6;
+  --c-dbx: #D8452E; --c-aws: #D98A0B; --c-tab: #2F6DB5; --tint: #E8F1F1;
+  --font-display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Source Sans 3", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --step-0: 1.0625rem;
+  --step-1: 1.25rem;
+  --step-2: 1.6rem;
+  --step-3: clamp(2.2rem, 5.5vw, 3.6rem);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0F1A1E; --panel: #15242A; --ink: #E6EEEF; --muted: #9DB0B5; --line: #284047;
+    --accent: #4FC1CC; --accent-ink: #0F1A1E; --gold: #E5B055; --chip: #1C3038; --hero-a: #0E3940; --hero-b: #0B2329; --hero-ink: #E6EEEF; --hero-muted: #9DC1C5; --c-dbx: #F0735E; --c-aws: #F2AE45; --c-tab: #6FA3E6; --tint: #18303A; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0F1A1E; --panel: #15242A; --ink: #E6EEEF; --muted: #9DB0B5; --line: #284047;
+  --accent: #4FC1CC; --accent-ink: #0F1A1E; --gold: #E5B055; --chip: #1C3038; --hero-a: #0E3940; --hero-b: #0B2329; --hero-ink: #E6EEEF; --hero-muted: #9DC1C5; --c-dbx: #F0735E; --c-aws: #F2AE45; --c-tab: #6FA3E6; --tint: #18303A; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--paper); color: var(--ink);
+  font: 400 var(--step-0)/1.6 var(--font-body);
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+a { color: var(--accent); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+h1, h2, h3 { font-family: var(--font-display); font-weight: 700; line-height: 1.1; text-wrap: balance; margin: 0; }
+p { margin: 0; }
+.wrap { max-width: 1040px; margin: 0 auto; }
+.mono { font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.02em; }
+
+/* top bar */
+.top {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+  padding-block: 20px; border-bottom: 1px solid var(--line);
+}
+.top .mark { font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; color: var(--ink); text-decoration: none; }
+.top nav { display: flex; gap: 18px; flex-wrap: wrap; }
+.top nav a { color: var(--muted); text-decoration: none; font-weight: 600; font-size: 0.95rem; }
+.top nav a:hover { color: var(--accent); }
+
+/* hero */
+.hero { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 48px; padding-block: 64px 56px; align-items: center; }
+.hero h1 { font-size: var(--step-3); letter-spacing: -0.02em; }
+.hero h1 .role { display: block; color: var(--accent); font-size: 0.55em; letter-spacing: -0.01em; margin-top: 10px; }
+.hero .lede { margin-top: 22px; max-width: 58ch; color: var(--muted); font-size: var(--step-1); line-height: 1.5; }
+.hero .cta { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px; padding: 11px 18px; border-radius: 6px;
+  font-weight: 600; text-decoration: none; border: 1px solid var(--accent);
+}
+.btn.primary { background: var(--accent); color: var(--accent-ink); }
+.btn.ghost { color: var(--accent); background: transparent; }
+
+/* lineage card: the signature element */
+.lineage { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 22px; }
+.lineage .mono.head { color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.72rem; }
+.lineage ol { list-style: none; margin: 14px 0 0; padding: 0; display: grid; gap: 0; }
+.lineage li { display: grid; grid-template-columns: 14px minmax(0, 1fr) auto; gap: 12px; align-items: baseline; padding: 9px 0; position: relative; }
+.lineage li::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--panel); border: 2px solid var(--accent); transform: translateY(1px); }
+.lineage li:not(:last-child)::after { content: ""; position: absolute; left: 6px; top: 27px; bottom: -9px; width: 2px; background: var(--line); }
+.lineage li.gold::before { border-color: var(--gold); background: var(--gold); }
+.lineage .name { font-weight: 600; }
+.lineage .val { font-family: var(--font-mono); font-size: 0.82rem; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.lineage .foot { margin-top: 12px; padding-top: 12px; border-top: 1px dashed var(--line); color: var(--muted); font-size: 0.9rem; }
+
+/* sections */
+section.block { padding-block: 56px; border-top: 1px solid var(--line); display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 32px; }
+.label { font-family: var(--font-mono); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); padding-top: 6px; }
+.label b { display: block; color: var(--accent); font-weight: 500; }
+.block h2 { font-size: var(--step-2); margin-bottom: 16px; }
+.prose { display: grid; gap: 14px; max-width: 66ch; }
+
+/* about facts */
+.facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; margin-top: 26px; border-top: 1px solid var(--line); }
+.facts div { padding: 16px 16px 0 0; }
+.facts dt { font-family: var(--font-display); font-size: 2rem; font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; }
+.facts dd { margin: 2px 0 0; color: var(--muted); font-size: 0.95rem; }
+
+/* experience timeline */
+.timeline { display: grid; gap: 0; }
+.job { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 20px; padding: 18px 0; border-bottom: 1px solid var(--line); }
+.job:first-child { padding-top: 0; }
+.job .when { font-family: var(--font-mono); font-size: 0.82rem; color: var(--muted); font-variant-numeric: tabular-nums; padding-top: 3px; }
+.job h3 { font-size: var(--step-1); }
+.job .org { color: var(--accent); font-weight: 600; }
+.job ul { margin: 10px 0 0; padding-left: 18px; display: grid; gap: 6px; color: var(--ink); }
+.job li::marker { color: var(--muted); }
+
+/* skills */
+.skills { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 32px; }
+.skills h3 { font-family: var(--font-mono); font-size: 0.78rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 10px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { background: var(--chip); color: var(--ink); padding: 4px 10px; border-radius: 999px; font-size: 0.92rem; }
+.certs { list-style: none; padding: 0; margin: 28px 0 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 32px; }
+.certs li { display: flex; gap: 10px; align-items: baseline; }
+.certs li::before { content: "✓"; color: var(--gold); font-weight: 700; }
+
+/* projects */
+.projects { display: grid; gap: 22px; }
+.project { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 24px; display: grid; gap: 14px; }
+.project.feature { border-color: var(--accent); }
+.project .meta { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.status { font-family: var(--font-mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; padding: 3px 8px; border-radius: 4px; border: 1px solid currentColor; }
+.status.live { color: var(--accent); }
+.status.wip { color: var(--gold); }
+.project h3 { font-size: var(--step-2); }
+.project p { color: var(--muted); max-width: 70ch; }
+.stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.stat { border-top: 2px solid var(--line); padding-top: 8px; }
+.stat b { display: block; font-family: var(--font-display); font-size: 1.5rem; font-variant-numeric: tabular-nums; }
+.stat span { color: var(--muted); font-size: 0.88rem; }
+.project ul.points { margin: 0; padding-left: 18px; display: grid; gap: 6px; }
+.links { display: flex; gap: 16px; flex-wrap: wrap; font-weight: 600; }
+pre.sql {
+  margin: 0; background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px;
+  font-family: var(--font-mono); font-size: 0.8rem; line-height: 1.55; overflow-x: auto; color: var(--ink);
+}
+pre.sql .k { color: var(--accent); font-weight: 500; }
+pre.sql .c { color: var(--muted); }
+
+/* blog */
+.posts { display: grid; gap: 0; }
+.post-link { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 20px; padding: 18px 0; border-bottom: 1px solid var(--line); text-decoration: none; color: var(--ink); }
+.post-link:first-child { padding-top: 0; }
+.post-link .date { font-family: var(--font-mono); font-size: 0.82rem; color: var(--muted); padding-top: 4px; }
+.post-link h3 { font-size: var(--step-1); }
+.post-link:hover h3 { color: var(--accent); }
+.post-link p { color: var(--muted); margin-top: 6px; }
+
+/* article view */
+article.post { max-width: 70ch; margin: 0 auto; padding-block: 48px 72px; display: grid; grid-template-columns: minmax(0, 1fr); gap: 18px; }
+article.post h1 { font-size: clamp(2rem, 4.5vw, 2.8rem); letter-spacing: -0.01em; }
+article.post h2 { font-size: var(--step-1); margin-top: 18px; }
+article.post .byline { font-family: var(--font-mono); font-size: 0.82rem; color: var(--muted); }
+article.post ul { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
+.back { font-weight: 600; text-decoration: none; }
+
+.post-body { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; min-width: 0; }
+.post-body h2 { font-size: var(--step-1); margin-top: 18px; }
+.post-body p, .post-body li { line-height: 1.65; }
+.post-body ol, .post-body ul { margin: 0; padding-left: 22px; display: grid; gap: 8px; }
+[hidden] { display: none !important; }
+img { max-width: 100%; height: auto; }
+.post-body img { display: block; border: 1px solid var(--line); border-radius: 8px; background: var(--panel); }
+.post-body pre { margin: 0; background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px; overflow-x: auto; font-family: var(--font-mono); font-size: 0.8rem; line-height: 1.55; color: var(--ink); }
+.post-body code { font-family: var(--font-mono); font-size: 0.88em; }
+.post-body :not(pre) > code { background: var(--panel); border: 1px solid var(--line); border-radius: 4px; padding: 1px 5px; overflow-wrap: anywhere; }
+.post-body strong { font-weight: 650; }
+.viz-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 20px; }
+.viz-list li { border-top: 1px solid var(--line); padding: 8px 0; }
+.viz-list a { text-decoration: none; font-weight: 600; }
+.viz-list span { display: block; color: var(--muted); font-size: 0.85rem; }
+.cert-link { margin-top: 14px; font-weight: 600; }
+@media (max-width: 820px) { .viz-list { grid-template-columns: minmax(0, 1fr); } }
+
+/* contact */
+.contact-row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; margin-top: 18px; }
+.email { font-family: var(--font-mono); font-size: 0.95rem; background: var(--panel); border: 1px solid var(--line); padding: 9px 12px; border-radius: 6px; user-select: all; }
+button.copy { font: 600 0.9rem var(--font-body); background: transparent; color: var(--accent); border: 1px solid var(--accent); padding: 9px 14px; border-radius: 6px; cursor: pointer; }
+footer { border-top: 1px solid var(--line); padding-block: 28px; color: var(--muted); font-size: 0.9rem; }
+
+@media (max-width: 820px) {
+  .hero { grid-template-columns: minmax(0, 1fr); gap: 32px; padding-block: 40px; }
+  section.block { grid-template-columns: minmax(0, 1fr); gap: 12px; padding-block: 40px; }
+  .job, .post-link { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .skills, .certs { grid-template-columns: minmax(0, 1fr); }
+  .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .facts { grid-template-columns: minmax(0, 1fr); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .lineage li { animation: rise .5s ease both; }
+  .lineage li:nth-child(2) { animation-delay: .08s } .lineage li:nth-child(3) { animation-delay: .16s }
+  .lineage li:nth-child(4) { animation-delay: .24s } .lineage li:nth-child(5) { animation-delay: .32s }
+  @keyframes rise { from { transform: translateY(4px); opacity: .4 } to { transform: none; opacity: 1 } }
+}
+
+/* ---------- v7 visual layer ---------- */
+.hero {
+  margin-top: 28px; padding: 56px clamp(20px, 5vw, 56px); border-radius: 22px; color: var(--hero-ink);
+  background:
+    radial-gradient(circle at 1px 1px, rgba(255,255,255,.09) 1px, transparent 0) 0 0 / 22px 22px,
+    radial-gradient(120% 90% at 100% 0%, rgba(229,176,85,.22), transparent 55%),
+    linear-gradient(135deg, var(--hero-a), var(--hero-b));
+  box-shadow: 0 24px 60px -30px rgba(11,74,82,.55);
+}
+.hero h1 { color: var(--hero-ink); }
+.hero h1 .role { color: #F2C46D; }
+.hero .lede { color: var(--hero-muted); }
+.hero .btn.primary { background: #F2C46D; border-color: #F2C46D; color: #10262B; }
+.hero .btn.ghost { color: var(--hero-ink); border-color: rgba(255,255,255,.35); }
+.hero .btn.ghost:hover { background: rgba(255,255,255,.08); }
+.hero .lineage { background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.16); backdrop-filter: blur(2px); color: var(--hero-ink); }
+.hero .lineage .mono.head, .hero .lineage .val, .hero .lineage .foot { color: var(--hero-muted); }
+.hero .lineage li::before { background: var(--hero-b); border-color: #7FD3DB; }
+.hero .lineage li.gold::before { background: #F2C46D; border-color: #F2C46D; }
+.hero .lineage li:not(:last-child)::after { background: rgba(255,255,255,.18); }
+.hero .lineage .foot { border-top-color: rgba(255,255,255,.2); }
+.monogram { display: inline-grid; place-items: center; width: 64px; height: 64px; border-radius: 18px; margin-bottom: 22px;
+  font: 700 1.5rem var(--font-display); color: #10262B; background: linear-gradient(135deg, #F2C46D, #7FD3DB); transform: rotate(-4deg); }
+.hello { display: block; font-family: var(--font-mono); font-size: .78rem; letter-spacing: .1em; text-transform: uppercase; color: #7FD3DB; margin-bottom: 10px; }
+
+section.block { border-top: 0; }
+.label { position: sticky; top: 20px; align-self: start; }
+.label b { font-size: .95rem; }
+.label::before { content: attr(data-n); display: block; font: 700 2.6rem/1 var(--font-display); color: var(--line); margin-bottom: 8px; letter-spacing: -.02em; }
+
+/* experience as a timeline */
+.timeline { position: relative; padding-left: 26px; }
+.timeline::before { content: ""; position: absolute; left: 6px; top: 6px; bottom: 6px; width: 2px; background: linear-gradient(var(--accent), var(--gold)); border-radius: 2px; }
+.job { position: relative; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 20px 22px; margin-bottom: 16px; border-bottom: 1px solid var(--line); }
+.job:first-child { padding-top: 20px; }
+.job::before { content: ""; position: absolute; left: -26px; top: 26px; width: 14px; height: 14px; border-radius: 50%; background: var(--panel); border: 3px solid var(--accent); }
+.job:first-child::before { background: var(--accent); box-shadow: 0 0 0 5px color-mix(in srgb, var(--accent) 22%, transparent); }
+.job .when { color: var(--accent); }
+
+/* skills chips tinted by family */
+.skills > div { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 18px; }
+.skills > div:nth-child(1) .chip { background: color-mix(in srgb, var(--c-tab) 14%, var(--panel)); }
+.skills > div:nth-child(2) .chip { background: color-mix(in srgb, var(--c-dbx) 13%, var(--panel)); }
+.skills > div:nth-child(3) .chip { background: color-mix(in srgb, var(--accent) 15%, var(--panel)); }
+.skills > div:nth-child(4) .chip { background: color-mix(in srgb, var(--c-aws) 16%, var(--panel)); }
+
+/* certification badges */
+.badges { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 26px; }
+.badge { --c: var(--accent); display: grid; grid-template-columns: 54px minmax(0, 1fr); gap: 14px; align-items: center; background: var(--panel); border: 1px solid var(--line); border-left: 4px solid var(--c); border-radius: 14px; padding: 16px; }
+.badge .seal { width: 54px; height: 54px; display: grid; place-items: center; color: #fff; font: 700 .9rem var(--font-display); background: var(--c);
+  clip-path: polygon(50% 0, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%); }
+.badge h3 { font-size: 1.02rem; line-height: 1.25; }
+.badge .issuer { color: var(--muted); font-size: .9rem; }
+.badge .verify { font-size: .85rem; font-weight: 600; }
+.badge.dbx { --c: var(--c-dbx); } .badge.aws { --c: var(--c-aws); } .badge.tab { --c: var(--c-tab); }
+.cert-link { margin-top: 16px; }
+
+/* projects and writing polish */
+.project { border-radius: 16px; position: relative; overflow: hidden; }
+.project.feature { background: linear-gradient(180deg, var(--tint), var(--panel) 40%); }
+.project:hover, .job:hover, .badge:hover, .hobby:hover { box-shadow: 0 14px 34px -22px rgba(11,74,82,.55); }
+.post-link { border-radius: 12px; padding: 16px; border-bottom: 0; margin-bottom: 4px; }
+.post-link:first-child { padding-top: 16px; }
+.post-link:hover { background: var(--panel); }
+.post-link .date { display: inline-block; align-self: start; font-size: .72rem; text-transform: uppercase; letter-spacing: .06em; padding: 3px 8px; border-radius: 999px; background: var(--chip); color: var(--accent); }
+
+.lineage li > span:first-child { display: none; }
+.post-link .date { justify-self: start; }
+.post-link > span:last-child::after { content: "Read the post →"; display: block; margin-top: 8px; color: var(--accent); font-weight: 600; font-size: .92rem; }
+
+.avail { display: inline-flex; align-items: center; gap: 10px; margin-top: 22px; padding: 8px 14px; border-radius: 999px; background: rgba(242,196,109,.14); border: 1px solid rgba(242,196,109,.45); color: #F7D998; font-weight: 600; font-size: .95rem; }
+.avail .dot { width: 9px; height: 9px; border-radius: 50%; background: #7BE0A0; box-shadow: 0 0 0 4px rgba(123,224,160,.22); flex: none; }
+
+/* beyond work */
+.hobbies { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.hobby { background: var(--panel); border: 1px solid var(--line); border-radius: 16px; padding: 20px; display: grid; gap: 10px; align-content: start; }
+.hobby svg { width: 40px; height: 40px; color: var(--accent); }
+.hobby:nth-child(2) svg, .hobby:nth-child(4) svg { color: var(--gold); }
+.hobby h3 { font-size: 1.05rem; }
+.hobby p { color: var(--muted); font-size: .95rem; }
+
+.contact-card { background: linear-gradient(135deg, var(--hero-a), var(--hero-b)); color: var(--hero-ink); border-radius: 20px; padding: clamp(22px, 4vw, 40px); }
+.contact-card h2 { color: var(--hero-ink); }
+.contact-card .prose { color: var(--hero-muted); }
+.contact-card .email { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.25); color: var(--hero-ink); }
+.contact-card button.copy { color: #F2C46D; border-color: #F2C46D; }
+.contact-card .btn.ghost { color: var(--hero-ink); border-color: rgba(255,255,255,.35); }
+
+@media (max-width: 820px) {
+  .badges, .hobbies { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .label { position: static; }
+  .label::before { font-size: 1.8rem; }
+  .hero { padding: 36px 20px; }
+}
+@media (max-width: 520px) { .badges, .hobbies { grid-template-columns: minmax(0, 1fr); } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="mark" href="#">Priyanka Andrew Charan</a>
+    <nav aria-label="Sections">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#writing">Blogs</a>
+      <a href="#life">Beyond work</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main id="home">
+    <div class="hero">
+      <div>
+        <div class="monogram" aria-hidden="true">PC</div>
+        <div class="hello">Hello, I'm</div>
+        <h1>Priyanka Andrew Charan <span class="role">Business Intelligence Lead</span></h1>
+        <p class="lede">I turn messy operational data into governed pipelines and dashboards people actually use. Today that means Databricks and Tableau for NYU Langone Health's education analytics; before that, finance reporting for Blackstone and ad tech and digital marketing analytics at Mediamint.</p>
+        <p class="avail"><span class="dot" aria-hidden="true"></span>Open work permit · Relocating to Ontario, Canada in January 2027</p>
+        <div class="cta">
+          <a class="btn primary" href="#projects">See projects</a>
+          <a class="btn ghost" href="https://github.com/PriyankaCharan" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn ghost" href="https://public.tableau.com/app/profile/priyanka.charan/vizzes" target="_blank" rel="noopener">Tableau Public</a>
+        </div>
+      </div>
+      <aside class="lineage" aria-label="Featured project data lineage">
+        <div class="mono head">Featured build · healthcare lakehouse</div>
+        <ol>
+          <li><span></span><span class="name">Raw CSV in S3</span><span class="val">14 files · ~7 GB</span></li>
+          <li><span></span><span class="name">Bronze</span><span class="val">57,398 patients</span></li>
+          <li><span></span><span class="name">Silver</span><span class="val">14 DQ checks</span></li>
+          <li class="gold"><span></span><span class="name">Gold star schema</span><span class="val">16 tables</span></li>
+          <li><span></span><span class="name">Dashboard + SQL agent</span><span class="val">3.37M encounters</span></li>
+        </ol>
+        <p class="foot">AWS S3 → Databricks (Unity Catalog, Delta) → AI/BI dashboard and a text-to-SQL agent, deployed with CI/CD.</p>
+      </aside>
+    </div>
+
+    <section class="block" id="about">
+      <div class="label" data-n="01"><b>About</b>who I am</div>
+      <div>
+        <h2>From the classroom to the data platform</h2>
+        <div class="prose">
+          <p>I spent about six years teaching before moving into business intelligence, and that still shapes how I work. A dashboard is only useful if the person reading it can explain what it says, so I start with discovery sessions, agree the definitions, and then build.</p>
+          <p>At Useready I support NYU Langone Health's education analytics team: admissions, residency and knowledge reporting. I built student- and faculty-facing dashboards such as Resident Profile, Faculty Profile and Residency Match, AI-generated feedback summaries for faculty and students, a SimCapture simulation-data pipeline into Databricks, and an Oracle-to-Databricks medallion migration that feeds Tableau, with row-level security and tag-based governance in production.</p>
+          <p>I enjoy the whole path: modelling the data, making it trustworthy, and presenting it so a busy stakeholder gets the answer in one look. I also love fixing bugs: tracking down why a number looks wrong is one of my favourite parts of the job.</p>
+        </div>
+        <dl class="facts">
+          <div><dt>12+</dt><dd>years of professional experience</dd></div>
+          <div><dt>~7</dt><dd>years in business intelligence</dd></div>
+          <div><dt>4</dt><dd>Databricks, AWS and Tableau certifications</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="block" id="experience">
+      <div class="label" data-n="02"><b>Experience</b>where I've worked</div>
+      <div class="timeline">
+        <div class="job">
+          <div class="when">Nov 2022 – Present</div>
+          <div>
+            <h3>Business Intelligence Lead</h3>
+            <div class="org">Useready · client: NYU Langone Health</div>
+            <ul>
+              <li>Built medical education dashboards including Resident Profile, Faculty Profile, Clerkship Assessment, Medical Knowledge and Residency Match.</li>
+              <li>Ingested data from SimCapture, the simulation application, into Databricks and built the pipelines and dashboards on top of it.</li>
+              <li>Migrated Oracle education data to Databricks end to end (Bronze to Gold on Delta Lake and Workflows), feeding Tableau with row-level security and tag-based governance.</li>
+              <li>Built AI feedback pipelines that use prompts to score students' assessments and write feedback, running as scheduled pipelines.</li>
+              <li>Work across Azure Data Factory, Databricks Workflows and CI/CD pipelines.</li>
+              <li>Run stakeholder discovery sessions and drive delivery across a team of five.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="job">
+          <div class="when">Sep 2021 – Sep 2022</div>
+          <div>
+            <h3>Sr. Project Engineer</h3>
+            <div class="org">Wipro · Blackstone Centre of Excellence</div>
+            <ul>
+              <li>Brought timesheet data from an in-house application into AWS S3 and automated the feed with Airflow, powering a Tableau dashboard.</li>
+              <li>Built and maintained other Tableau dashboards for asset management and finance teams, mainly on Snowflake.</li>
+              <li>Optimized Snowflake queries behind the dashboards.</li>
+              <li>Wrote Python pipelines with S3, CloudWatch scheduling and Terraform.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="job">
+          <div class="when">Jan 2020 – Sep 2021</div>
+          <div>
+            <h3>Team Coordinator, Data Analytics</h3>
+            <div class="org">Mediamint</div>
+            <ul>
+              <li>Worked on ad tech data and platforms, delivering digital marketing analytics.</li>
+              <li>Led a team of three BI developers.</li>
+              <li>Automated reporting with Python and Google Sheets.</li>
+              <li>Received two Client Favorite Awards.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="job">
+          <div class="when">Before 2020</div>
+          <div>
+            <h3>Teacher</h3>
+            <div class="org">Freedom International School · Mount Carmel School</div>
+            <ul>
+              <li>About six years in the classroom, explaining complex ideas in simple words to curious young learners. It taught me to keep things clear, short and engaging, which is exactly what a good dashboard needs.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="skills">
+      <div class="label" data-n="03"><b>Skills</b>what I use</div>
+      <div>
+        <div class="skills">
+          <div><h3>Visualization</h3><div class="chips"><span class="chip">Tableau</span><span class="chip">Power BI</span><span class="chip">Looker / LookML</span><span class="chip">Databricks AI/BI</span></div></div>
+          <div><h3>Data platforms</h3><div class="chips"><span class="chip">Databricks</span><span class="chip">Unity Catalog</span><span class="chip">Delta Lake</span><span class="chip">Snowflake</span><span class="chip">Redshift</span></div></div>
+          <div><h3>Engineering</h3><div class="chips"><span class="chip">SQL</span><span class="chip">Python</span><span class="chip">PySpark</span><span class="chip">Spark SQL</span><span class="chip">dbt</span><span class="chip">Airflow</span></div></div>
+          <div><h3>Cloud and delivery</h3><div class="chips"><span class="chip">AWS (S3, IAM, CloudWatch)</span><span class="chip">Azure Data Factory</span><span class="chip">Terraform</span><span class="chip">CI/CD</span></div></div>
+        </div>
+        <div class="badges">
+          <div class="badge dbx"><span class="seal">DE</span><div><h3>Databricks Certified Data Engineer Associate</h3><div class="issuer">Databricks</div><a class="verify" href="https://credentials.databricks.com/2b154fa8-ca8b-4514-aa4f-d3606cd4185d" target="_blank" rel="noopener">Verify on Databricks →</a></div></div>
+          <div class="badge aws"><span class="seal">SA</span><div><h3>AWS Certified Solutions Architect – Associate</h3><div class="issuer">Amazon Web Services · valid to Apr 2027</div><a class="verify" href="https://www.credly.com/users/priyanka-charan/badges" target="_blank" rel="noopener">Verify on Credly →</a></div></div>
+          <div class="badge tab"><span class="seal">DA</span><div><h3>Tableau Certified Data Analyst</h3><div class="issuer">Tableau · valid to Dec 2026</div><a class="verify" href="https://www.credly.com/users/priyanka-charan/badges" target="_blank" rel="noopener">Verify on Credly →</a></div></div>
+          <div class="badge tab"><span class="seal">TA</span><div><h3>Tableau Desktop Specialist</h3><div class="issuer">Tableau</div><a class="verify" href="https://www.credly.com/users/priyanka-charan/badges" target="_blank" rel="noopener">Verify on Credly →</a></div></div>
+        </div>
+        <p class="cert-link"><a href="https://www.credly.com/users/priyanka-charan/badges" target="_blank" rel="noopener">See all my badges on Credly →</a></p>
+      </div>
+    </section>
+
+    <section class="block" id="projects">
+      <div class="label" data-n="04"><b>Projects</b>things I've built</div>
+      <div class="projects">
+        <article class="project feature">
+          <div class="meta"><span class="status live">Live on GitHub</span><span class="mono">AWS · Databricks · Delta · PySpark</span></div>
+          <h3>Synthea Healthcare Lakehouse</h3>
+          <p>An end-to-end healthcare analytics platform on synthetic patient records: raw files in S3, a Bronze, Silver and Gold medallion pipeline in Databricks, a population-health dashboard, all deployed as one Asset Bundle with GitHub Actions.</p>
+          <div class="stats">
+            <div class="stat"><b>57,398</b><span>synthetic patients</span></div>
+            <div class="stat"><b>3.37M</b><span>encounters modelled</span></div>
+            <div class="stat"><b>16</b><span>Gold tables with keys</span></div>
+            <div class="stat"><b>14</b><span>data quality checks</span></div>
+          </div>
+          <ul class="points">
+            <li>De-identified in Silver: SSNs, names and addresses never leave Bronze.</li>
+            <li>Gold star schema with 30-day readmission, length of stay, payer coverage and chronic-disease prevalence.</li>
+            <li>Four-page AI/BI dashboard stored as code and deployed automatically.</li>
+          </ul>
+          <div class="links"><a href="https://github.com/PriyankaCharan/synthea-healthcare-lakehouse" target="_blank" rel="noopener">View the repository →</a></div>
+        </article>
+
+        <article class="project">
+          <div class="meta"><span class="status live">Working prototype</span><span class="mono">Model Serving · Databricks Apps · Streamlit</span></div>
+          <h3>Health Data SQL Agent</h3>
+          <p>Ask a question in plain English and get an answer, the SQL behind it, the data and a chart. A Databricks-hosted model writes the query; guardrails make sure it is read-only and only touches the Gold layer.</p>
+          <pre class="sql"><span class="c">-- "What is the 30-day readmission rate for each payer type?"</span>
+<span class="k">SELECT</span> py.payer_type,
+       <span class="k">ROUND</span>(<span class="k">AVG</span>(<span class="k">CASE WHEN</span> f.has_readmission_30d <span class="k">THEN</span> 1.0 <span class="k">ELSE</span> 0 <span class="k">END</span>), 4) <span class="k">AS</span> readmission_rate
+<span class="k">FROM</span> workspace.gold.fact_encounter f
+<span class="k">JOIN</span> workspace.gold.dim_payer py <span class="k">ON</span> f.payer_id = py.payer_id
+<span class="k">WHERE</span> f.is_readmission_eligible
+<span class="k">GROUP BY</span> py.payer_type</pre>
+          <ul class="points">
+            <li>Schema context is read live from table and column comments, so documentation and agent stay in sync.</li>
+            <li>Self-corrects: query errors go back to the model for a fix, up to three attempts.</li>
+            <li>Scored on 30 hand-written reference questions, comparing Qwen3.5 122B with GPT OSS 120B.</li>
+          </ul>
+          <div class="links"><a href="https://github.com/PriyankaCharan/synthea-healthcare-lakehouse/tree/main/agent" target="_blank" rel="noopener">See the agent code →</a></div>
+        </article>
+
+        <article class="project">
+          <div class="meta"><span class="status live">Tableau Public</span><span class="mono">9 published vizzes</span></div>
+          <h3>Tableau Public gallery</h3>
+          <p>Dashboards I've published over the years, from payment authorization rates and lending to sales and public health.</p>
+          <ul class="viz-list">
+            <li><a href="https://public.tableau.com/app/profile/priyanka.charan/viz/PaymentProcessingDataAnalysis/AuthRateAnalysis" target="_blank" rel="noopener">Payment Processing Data Analysis</a><span>Authorization rates</span></li>
+            <li><a href="https://public.tableau.com/app/profile/priyanka.charan/viz/EXECUTIVEDASHBOARD_16249846277460/Dashboard1" target="_blank" rel="noopener">Executive Dashboard</a><span>Executive KPIs</span></li>
+            <li><a href="https://public.tableau.com/app/profile/priyanka.charan/viz/ProductionDashboard_16285321518910/Production" target="_blank" rel="noopener">Production Dashboard</a><span>Operations</span></li>
+            <li><a href="https://public.tableau.com/app/profile/priyanka.charan/viz/LendersClub/Dashboard1" target="_blank" rel="noopener">Lender's Club</a><span>Lending</span></li>
+            <li><a href="https://public.tableau.com/app/profile/priyanka.charan/viz/SalesSummary_16133326897330/Dashboard1" target="_blank" rel="noopener">Sales Summary</a><span>Sales</span></li>
+            <li><a href="https://public.tableau.com/app/profile/priyanka.charan/viz/TAXIRIDESINAWEEK/Dashboard1" target="_blank" rel="noopener">Taxi Rides in a Week</a><span>Transport</span></li>
+            <li><a href="https://public.tableau.com/app/profile/priyanka.charan/viz/PersonalAnalysis_16632533656730/Dashboard2" target="_blank" rel="noopener">Personal Analysis</a><span>Personal data</span></li>
+            <li><a href="https://public.tableau.com/app/profile/priyanka.charan/viz/CoronainIndia_15856750018970/Dashboard" target="_blank" rel="noopener">Corona in India</a><span>Public health</span></li>
+            <li><a href="https://public.tableau.com/app/profile/priyanka.charan/viz/COVID-19_15856737680440/Dashboard1" target="_blank" rel="noopener">COVID-19</a><span>Public health</span></li>
+          </ul>
+          <div class="links"><a href="https://public.tableau.com/app/profile/priyanka.charan/vizzes" target="_blank" rel="noopener">See my Tableau Public profile →</a></div>
+        </article>
+
+        <article class="project">
+          <div class="meta"><span class="status wip">In progress</span><span class="mono">Tableau Public</span></div>
+          <h3>Population Health and Cost in Tableau</h3>
+          <p>The same Gold layer told as a Tableau story: utilization, readmissions, chronic disease and who pays for care. The public link will be added here.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="block" id="writing">
+      <div class="label" data-n="05"><b>Blogs</b>notes from the work</div>
+      <div class="posts">
+        <a class="post-link" href="#blog-lakehouse">
+          <span class="date">Databricks</span>
+          <span><h3>Building a healthcare lakehouse on Databricks Free Edition</h3>
+          <p>What I learned taking 57,000 synthetic patients from raw CSV to a governed star schema, and the small data issues that would have broken every dashboard.</p></span>
+        </a>
+        <a class="post-link" href="#blog-tableau-truncated-text">
+          <span class="date">Tableau + Databricks</span>
+          <span><h3>Fixing truncated text in Tableau when connecting to Databricks</h3>
+          <p>Why long strings stop at 255 characters, and the .tdc file that fixes it.</p></span>
+        </a>
+        <a class="post-link" href="#blog-tableau-extract-failures">
+          <span class="date">Tableau + Databricks</span>
+          <span><h3>Tableau extract failures with Databricks views</h3>
+          <p>Long-running extracts fail while small ones succeed. The cause is Cloud Fetch, and one ODBC option works around it.</p></span>
+        </a>
+        <a class="post-link" href="#blog-tableau-containers">
+          <span class="date">Tableau</span>
+          <span><h3>Using containers in Tableau</h3>
+          <p>A step-by-step layout with vertical and horizontal containers that keeps a dashboard tidy and easy to change.</p></span>
+        </a>
+        <a class="post-link" href="#blog-tableau-tips">
+          <span class="date">Tableau</span>
+          <span><h3>Five small Tableau features that save time</h3>
+          <p>Column labels for table text, restoring row labels, filtering to calculations, field comments and line breaks in calculations.</p></span>
+        </a>
+        <a class="post-link" href="#blog-aws-data-processing">
+          <span class="date">AWS</span>
+          <span><h3>Streamlining data processing with AWS</h3>
+          <p>A small serverless pattern: Lambda runs the script, EC2 builds the dependencies and CloudWatch runs it on schedule.</p></span>
+        </a>
+        <a class="post-link" href="#blog-lambda-python-automation">
+          <span class="date">AWS</span>
+          <span><h3>How to automate Python scripts using AWS Lambda</h3>
+          <p>Write, package, test and monitor a Python job in Lambda, with a Snowflake update as the example.</p></span>
+        </a>
+        <a class="post-link" href="#blog-lambda-dependencies">
+          <span class="date">AWS</span>
+          <span><h3>Ensuring your dependencies are AWS Lambda ready</h3>
+          <p>Build packages on Amazon Linux with Docker or EC2, share them with layers, and test where you deploy.</p></span>
+        </a>
+      </div>
+    </section>
+
+    <section class="block" id="life">
+      <div class="label" data-n="06"><b>Beyond work</b>off the clock</div>
+      <div>
+        <h2>When I'm not building dashboards</h2>
+        <div class="hobbies">
+          <div class="hobby"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="19" cy="19" r="12"/><path d="M27.5 27.5 39 39"/><path d="M36 42l6-6"/><circle cx="38" cy="12" r="3.5" fill="currentColor" stroke="none"/></svg><h3>Table tennis</h3><p>I got a table tennis table at home during COVID and played day and night.</p></div>
+          <div class="hobby"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M30 18 41 7"/><path d="M38 4l6 6"/><circle cx="20" cy="30" r="11"/><circle cx="20" cy="30" r="3"/><path d="M14 36l-4 4"/></svg><h3>Guitar</h3><p>I'm musically inclined and love strumming the guitar, though I definitely need more time to get better.</p></div>
+          <div class="hobby"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="13" width="40" height="22" rx="3"/><path d="M12 13v13M20 13v13M28 13v13M36 13v13"/><path d="M4 26h40"/></svg><h3>Keyboard</h3><p>I also play the keyboard.</p></div>
+          <div class="hobby"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="12" width="38" height="25" rx="3"/><path d="M17 5l7 7 7-7"/><path d="M16 43h16"/></svg><h3>Suits</h3><p>My all-time favourite show. I've stopped counting how many times I've finished watching the whole series.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="contact">
+      <div class="label" data-n="07"><b>Contact</b>say hello</div>
+      <div class="contact-card">
+        <h2>Let's talk data</h2>
+        <p class="prose">I hold an open work permit and am relocating to Ontario, Canada in January 2027. I'm happy to talk about BI leadership roles, Databricks and Tableau work, or the projects above.</p>
+        <div class="contact-row">
+          <span class="email" id="email">priyankacharan5@gmail.com</span>
+          <a class="btn ghost" href="https://github.com/PriyankaCharan" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn ghost" href="https://public.tableau.com/app/profile/priyanka.charan/vizzes" target="_blank" rel="noopener">Tableau Public</a>
+          <a class="btn ghost" href="https://www.credly.com/users/priyanka-charan/badges" target="_blank" rel="noopener">Credly</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <article class="post" id="blog-lakehouse" hidden>
+    <a class="back" href="#writing">← All blogs</a>
+    <h1>Building a healthcare lakehouse on Databricks Free Edition</h1>
+    <div class="byline">Priyanka Andrew Charan · Databricks · 5 min read</div>
+    <p>I wanted a portfolio project that looks like the work I do every day: messy clinical data, strict privacy, and stakeholders who need one trustworthy number. Real patient data was out of the question, so I generated it. Synthea simulates full medical histories, and with a fixed seed it gave me 57,398 patients in Massachusetts, 50,000 of them living, with encounters, conditions, medications and claims.</p>
+    <h2>Raw files first, untouched</h2>
+    <p>The CSVs landed in an S3 bucket and stayed there unchanged. Bronze in Databricks is a straight copy into Delta tables with two audit columns: which file a row came from and when it arrived. If anything downstream looks wrong, I can always trace it back.</p>
+    <h2>Silver is where the real work happens</h2>
+    <p>Letting Spark infer the schema is convenient, and it quietly broke three things:</p>
+    <ul>
+      <li>ZIP codes became numbers, so 02139 turned into 2139. Every Boston-area ZIP lost its leading zero.</li>
+      <li>Clinical codes such as SNOMED and RxNorm became integers, which is wrong for an identifier and risky for joins.</li>
+      <li>Money arrived as floating point, which is not what you want in a cost report.</li>
+    </ul>
+    <p>Silver casts every column explicitly, restores the ZIP and FIPS codes, stores money as decimals and standardises labels. It also drops SSNs, names and street addresses, so nothing past Bronze carries direct identifiers. Fourteen data quality checks run on every load (unique keys, orphan records, negative costs, impossible dates), and a failure stops the pipeline before Gold is rebuilt.</p>
+    <h2>Gold is designed for questions</h2>
+    <p>Gold is a star schema: patients, providers, organizations, payers and dates around encounter, condition and medication facts. The definitions are where the value is. A 30-day readmission rate, for example, should only count stays whose 30-day window is complete, otherwise the most recent month always looks artificially good. I put that rule in a column, wrote it into the column comment, and added primary and foreign keys so both the dashboard and an AI agent can find the right joins.</p>
+    <h2>Shipping it like production</h2>
+    <p>The notebooks, the job and the dashboard are one Databricks Asset Bundle. Every push to GitHub runs the checks and deploys automatically. On top of Gold I built a text-to-SQL agent that answers plain-English questions, with guardrails that keep it read-only and away from anything but the Gold layer.</p>
+    <p>The code is on <a href="https://github.com/PriyankaCharan/synthea-healthcare-lakehouse" target="_blank" rel="noopener">GitHub</a>.</p>
+  </article>
+
+  <article class="post" id="blog-tableau-truncated-text" hidden>
+    <a class="back" href="#writing">← All blogs</a>
+    <h1>Fixing truncated text in Tableau when connecting to Databricks</h1>
+    <div class="byline">Priyanka Andrew Charan · Tableau + Databricks · 4 min read</div>
+    <div class="post-body">
+<h2>The problem</h2>
+<p>When Tableau connects to Databricks, long text fields may get cut to
+255 characters because of how the ODBC driver defines them. This post
+explains why that happens and a simple way to fix it so you can see the
+full data.</p>
+<h2>Why this happens</h2>
+<p>Tableau depends on the ODBC driver to understand the structure of the
+data. If the driver says a column is limited to 255 characters, Tableau
+will not retrieve anything beyond that, leading to truncated values in
+your dashboards. In the example below the column is limited to 255
+characters, so the text appears cut off mid-sentence.</p>
+<p><img loading="lazy" src="img/tableau-truncated-text/image1.jpg"
+alt="Description text cut off at 255 characters in a Tableau worksheet" /></p>
+<h2>The workaround</h2>
+<p>Tableau provides a way to override such limitations using
+<strong>.tdc (Tableau Data Customization) files</strong>. A .tdc file is
+an XML-based configuration file that lets you customize how Tableau
+interacts with a data source. By modifying this file, you can tell
+Tableau to treat string columns as much larger (for example, up to
+32,767 characters) instead of the default 255.</p>
+<h2>Steps to create a
+.tdc file for Databricks</h2>
+<p><strong>1. Locate the Tableau Datasources folder</strong></p>
+<p>Find the Datasources folder in your My Tableau Repository. To locate
+your repository, open Tableau, go to <strong>File</strong> and select
+<strong>Repository Location</strong>.</p>
+<p><img loading="lazy" src="img/tableau-truncated-text/image2.jpg"
+alt="File menu with Repository Location selected" /></p>
+<p>Copy the repository path shown at the top, then paste it into your
+File Explorer search bar. This takes you directly to your repository
+folder.</p>
+<p><img loading="lazy" src="img/tableau-truncated-text/image3.jpg"
+alt="My Tableau Repository folder with the Datasources folder" /></p>
+<p><strong>2. Create the .tdc file</strong></p>
+<p>Create a file in Notepad or Visual Studio Code and save it with a
+.tdc extension:</p>
+<pre><code>Databricks.tdc</code></pre>
+<p>You can also place .tdc files in Tableau's Drivers folder for a
+global effect:</p>
+<ul>
+<li>Windows: <code>C:\Program Files\Tableau\Drivers</code></li>
+<li>macOS:
+<code>/Applications/Tableau Desktop.app/Contents/Drivers</code></li>
+</ul>
+<p><strong>3. Add the XML content</strong></p>
+<p>Here is sample code for the .tdc file to increase the string
+length:</p>
+<pre class="xml"><code>&lt;?xml version=&#39;1.0&#39; encoding=&#39;utf-8&#39; ?&gt;
+&lt;connection-customization class=&#39;databricks&#39; enabled=&#39;true&#39; version=&#39;10.4&#39;&gt;
+  &lt;vendor name=&#39;databricks&#39;/&gt;
+  &lt;driver name=&#39;databricks&#39;/&gt;
+  &lt;customizations&gt;
+    &lt;customization name=&#39;odbc-connect-string-extras&#39; value=&#39;DefaultStringColumnLength=1024&#39; /&gt;
+  &lt;/customizations&gt;
+&lt;/connection-customization&gt;</code></pre>
+<p><strong>4. Restart Tableau</strong></p>
+<p>After saving the .tdc file, restart Tableau Desktop so it loads the
+new settings.</p>
+<p><strong>5. Verify</strong></p>
+<p>Connect to Databricks again and check a long string column. It should
+now show longer values without truncation.</p>
+<p><img loading="lazy" src="img/tableau-truncated-text/image4.jpg"
+alt="The same worksheet after the fix, showing full descriptions" /></p>
+<h2>Summary</h2>
+<p>Truncated text in Tableau when connecting to Databricks can be
+confusing, especially when the full data exists in the source. The issue
+comes down to how the ODBC driver reports string lengths, and a simple
+.tdc customization overrides this limitation so you see your data as
+intended. Your dashboards then reflect complete and accurate
+information, without misleading insights caused by cut-off text.</p>
+
+    </div>
+    <a class="back" href="#writing">← All blogs</a>
+  </article>
+
+  <article class="post" id="blog-tableau-extract-failures" hidden>
+    <a class="back" href="#writing">← All blogs</a>
+    <h1>Tableau extract failures with Databricks views</h1>
+    <div class="byline">Priyanka Andrew Charan · Tableau + Databricks · 2 min read</div>
+    <div class="post-body">
+<h2>Problem</h2>
+<p>Long-running Tableau extracts from Databricks views fail, while
+smaller extracts complete successfully.</p>
+<h2>Cause</h2>
+<p>The issue is caused by the Query Result Download (Cloud Fetch)
+feature. It uses temporary cloud storage URLs to download large query
+result sets. For long-running extracts, these URLs can expire before the
+download completes, so the extract fails. Smaller extracts succeed
+because they finish before the URLs expire.</p>
+<h2>Workaround</h2>
+<p>Disable Query Result Download by adding a parameter to the Databricks
+connection in Tableau Desktop:</p>
+<ol type="1">
+<li>Open the Databricks connection in Tableau Desktop.</li>
+<li>Go to the <strong>Advanced</strong> tab.</li>
+<li>In <strong>Extra ODBC options</strong>, append
+<code>;EnableQueryResultDownload=0</code>. Combined with the
+string-length fix, the full value is:</li>
+</ol>
+<pre><code>DefaultStringColumnLength=1024;EnableQueryResultDownload=0</code></pre>
+<ol start="4" type="1">
+<li>Sign in again and rerun the extract.</li>
+</ol>
+<p>If that does not work, use the same .tdc approach described in <a
+href="#blog-tableau-truncated-text">Fixing truncated text in Tableau
+when connecting to Databricks</a> and add the parameter to the .tdc
+file:</p>
+<pre class="xml"><code>&lt;?xml version=&#39;1.0&#39; encoding=&#39;utf-8&#39; ?&gt;
+&lt;connection-customization class=&#39;databricks&#39; enabled=&#39;true&#39; version=&#39;10.4&#39;&gt;
+  &lt;vendor name=&#39;databricks&#39;/&gt;
+  &lt;driver name=&#39;databricks&#39;/&gt;
+  &lt;customizations&gt;
+    &lt;customization name=&#39;odbc-connect-string-extras&#39;
+                   value=&#39;DefaultStringColumnLength=1024;EnableQueryResultDownload=0&#39; /&gt;
+  &lt;/customizations&gt;
+&lt;/connection-customization&gt;</code></pre>
+<p><strong>Note:</strong> this is a workaround. Disabling Cloud Fetch
+can make very large extracts slower, so revisit it when your driver and
+Databricks versions change.</p>
+
+    </div>
+    <a class="back" href="#writing">← All blogs</a>
+  </article>
+
+  <article class="post" id="blog-tableau-containers" hidden>
+    <a class="back" href="#writing">← All blogs</a>
+    <h1>Using containers in Tableau</h1>
+    <div class="byline">Priyanka Andrew Charan · Tableau · 4 min read</div>
+    <div class="post-body">
+<p>A well-organized dashboard makes data easy to understand and act on,
+while a cluttered layout hides the insights. This guide builds a clean
+dashboard layout with containers, so it looks good and stays easy to
+update later. The example uses Tableau's Superstore sample data.</p>
+<p><strong>1. Add and set up the vertical container</strong></p>
+<p>Hold down <strong>Shift</strong> and drag a <strong>Vertical
+Container</strong> onto the dashboard. In the <strong>Layout</strong>
+pane, set the <strong>X</strong> and <strong>Y</strong> positions to 0,
+0 so the container starts at the top-left corner.</p>
+<p><img loading="lazy" src="img/tableau-containers/image1.jpg"
+alt="Dragging a floating vertical container onto the dashboard" /></p>
+<p>Set the <strong>Width (W)</strong> and <strong>Height (H)</strong> to
+the size of the dashboard so the container fills the space.</p>
+<p><img loading="lazy" src="img/tableau-containers/image2.jpg"
+alt="Layout pane with position 0, 0 and size 1000 by 800" /></p>
+<p><strong>2. Add a blank object to keep alignment</strong></p>
+<p>From the <strong>Objects</strong> section, drag a
+<strong>Blank</strong> object into the vertical container. This avoids
+leftover space at the bottom that throws off the alignment later.
+Optionally, give it a background color so you can tell it apart.</p>
+<p><img loading="lazy" src="img/tableau-containers/image3.jpg"
+alt="Blank object inside the container with a background color" /></p>
+<p><strong>3. Add the dashboard title</strong></p>
+<p>Drag a <strong>Text</strong> object into the vertical container and
+place it at the top for the dashboard name.</p>
+<p><img loading="lazy" src="img/tableau-containers/image4.jpg"
+alt="Adding a text object for the title" /></p>
+<p><strong>4. Add the KPI chart</strong></p>
+<p>Drag the <strong>KPI</strong> sheet below the title, inside the
+vertical container. Notice the <strong>Item hierarchy</strong> in the
+dashboard pane: every object sits neatly under the vertical
+container.</p>
+<p><img loading="lazy" src="img/tableau-containers/image5.jpg"
+alt="KPI row added under the title" /></p>
+<p><strong>5. Add a horizontal container</strong></p>
+<p>Drag a <strong>Horizontal Container</strong> below the KPI chart.</p>
+<p><img loading="lazy" src="img/tableau-containers/image6.jpg"
+alt="Horizontal container below the KPIs" /></p>
+<p>Add the <strong>Profit by Segment</strong> and <strong>Profit by
+Category</strong> charts side by side inside it.</p>
+<p><img loading="lazy" src="img/tableau-containers/image7.jpg"
+alt="Profit by Segment added to the horizontal container" /></p>
+<p><img loading="lazy" src="img/tableau-containers/image8.jpg"
+alt="Both charts side by side" /></p>
+<p><strong>6. Deal with legends and tile spacing</strong></p>
+<p>If the legends look cluttered or don't fit the layout, it's time to
+clean up.</p>
+<p><img loading="lazy" src="img/tableau-containers/image9.jpg"
+alt="Legends crowding the layout" /></p>
+<p>Remove the <strong>Tiled</strong> container that appeared at the
+bottom of the dashboard.</p>
+<p><img loading="lazy" src="img/tableau-containers/image10.jpg"
+alt="Remove Container on the tiled container" /></p>
+<p><strong>7. Remove the legends and tiled containers</strong></p>
+<p>Delete the legends and the unwanted tiled container to keep a clean
+layout and hierarchy.</p>
+<p><img loading="lazy" src="img/tableau-containers/image11.jpg"
+alt="Hierarchy after removing the tiled container" /></p>
+<p><strong>8. Finish the layout</strong></p>
+<p>Add the last sheet and make sure every component is aligned.</p>
+<p><img loading="lazy" src="img/tableau-containers/image12.jpg"
+alt="Table added below the charts" /></p>
+<p>Remove the blank object if needed so everything fits.</p>
+<p><img loading="lazy" src="img/tableau-containers/image13.jpg"
+alt="Removing the blank object" /></p>
+<p><strong>9. Keep a clean hierarchy</strong></p>
+<p>The key to a maintainable dashboard is a clean hierarchy. Remove any
+extra tiled objects created by legends or filters.</p>
+<p><img loading="lazy" src="img/tableau-containers/image14.jpg"
+alt="Final clean item hierarchy" /></p>
+<p>With this structure you can add or change objects later without
+disturbing the layout.</p>
+
+    </div>
+    <a class="back" href="#writing">← All blogs</a>
+  </article>
+
+  <article class="post" id="blog-tableau-tips" hidden>
+    <a class="back" href="#writing">← All blogs</a>
+    <h1>Five small Tableau features that save time</h1>
+    <div class="byline">Priyanka Andrew Charan · Tableau · 4 min read</div>
+    <div class="post-body">
+<p>Tableau has many small features that save time once you know them.
+This post covers five: showing column labels for table text, restoring
+row labels, filtering calculations, adding comments for new users, and
+formatting text in calculations. The examples use Tableau's Superstore
+sample data.</p>
+<h2>1. Show column labels for
+table text</h2>
+<p>A common issue: you drag a measure such as <strong>Profit</strong> to
+the Text shelf, and the column label for that measure doesn't
+appear.</p>
+<p><img loading="lazy" src="img/tableau-tips/image1.jpg"
+alt="Profit on the Text shelf without a column label" /></p>
+<p>To fix it:</p>
+<ol type="1">
+<li><strong>Add Measure Names to Columns.</strong> Drag <strong>Measure
+Names</strong> to the Columns shelf. Then, holding
+<strong>Ctrl</strong>, drag it to the Filters shelf as well and select
+the measure you want (for example, Profit).</li>
+</ol>
+<p><img loading="lazy" src="img/tableau-tips/image2.jpg"
+alt="Measure Names on Columns and Filters" /></p>
+<ol start="2" type="1">
+<li><strong>Move Measure Values to Text.</strong> Drag <strong>Measure
+Values</strong> from the Data pane to the Text shelf.</li>
+</ol>
+<p><img loading="lazy" src="img/tableau-tips/image3.jpg"
+alt="Measure Values on the Text shelf" /></p>
+<ol start="3" type="1">
+<li>The field label now appears in the table.</li>
+</ol>
+<h2>2. Restore row labels</h2>
+<p>Row labels are hidden when <strong>Hide Field Labels for
+Rows</strong> is selected, and it isn't obvious how to bring them
+back.</p>
+<p><img loading="lazy" src="img/tableau-tips/image4.jpg"
+alt="Hide Field Labels for Rows in the context menu" /></p>
+<p><img loading="lazy" src="img/tableau-tips/image5.jpg"
+alt="Table with the row labels hidden" /></p>
+<p>To restore them, open the <strong>Analysis</strong> menu, choose
+<strong>Table Layout</strong> and select <strong>Show Field Labels for
+Rows</strong>.</p>
+<p><img loading="lazy" src="img/tableau-tips/image6.jpg"
+alt="Analysis, Table Layout, Show Field Labels for Rows" /></p>
+<p><strong>Tip:</strong> if the headers for Measure Names are missing,
+click <strong>Measure Names</strong> and select <strong>Show
+Header</strong>.</p>
+<p><img loading="lazy" src="img/tableau-tips/image7.jpg" alt="Headers restored" /></p>
+<h2>3. Filter to calculations
+only</h2>
+<p>In the Data pane, open the dropdown menu, choose <strong>Filter
+By</strong> and pick the criteria, such as calculations. Only those
+fields stay visible, so you can focus on the ones you need.</p>
+<p><img loading="lazy" src="img/tableau-tips/image8.jpg"
+alt="Data pane filtered to calculated fields" /></p>
+<h2>4. Add comments
+to describe fields for new users</h2>
+<p>Comments help new users understand the data without cluttering the
+workspace.</p>
+<ol type="1">
+<li>Right-click a field in the Data pane.</li>
+<li>Choose <strong>Default Properties</strong>, then
+<strong>Comment</strong>, and write a description.</li>
+<li>The comment appears when anyone hovers over the field.</li>
+</ol>
+<p><img loading="lazy" src="img/tableau-tips/image9.jpg"
+alt="Comment shown when hovering over Order ID" /></p>
+<h2>5. Add a line
+break inside a text calculation</h2>
+<p>To put text on a new line in a calculation, add <code>+ "</code> then
+press <strong>Enter</strong> and close the quote. Pressing Enter inside
+the quotation marks creates a line break in the output.</p>
+<p><img loading="lazy" src="img/tableau-tips/image10.jpg"
+alt="Calculation with a line break inside the quotes" /></p>
+<p>The result is easier to read text in the view.</p>
+<p><img loading="lazy" src="img/tableau-tips/image11.jpg"
+alt="Text output split over two lines" /></p>
+<p>These small techniques make day-to-day work in Tableau smoother for
+beginners and experienced users alike.</p>
+
+    </div>
+    <a class="back" href="#writing">← All blogs</a>
+  </article>
+
+  <article class="post" id="blog-aws-data-processing" hidden>
+    <a class="back" href="#writing">← All blogs</a>
+    <h1>Streamlining data processing with AWS</h1>
+    <div class="byline">Priyanka Andrew Charan · AWS · 3 min read</div>
+    <div class="post-body">
+<p>Cloud services make it much easier to automate routine data
+processing. This post shows a simple pattern I use: a Python script that
+pulls data from Snowflake, transforms it and writes it back, running on
+AWS without a server to manage.</p>
+<h2>Overview</h2>
+<p>The script runs as an AWS Lambda function, and Amazon CloudWatch
+(EventBridge) schedules it, so the job runs on time with no manual
+effort. Three services fit together:</p>
+<ol type="1">
+<li><strong>AWS Lambda</strong> runs the script.</li>
+<li><strong>Amazon EC2</strong> prepares the dependencies.</li>
+<li><strong>Amazon CloudWatch</strong> handles the schedule.</li>
+</ol>
+<h2>AWS Lambda: running the
+script</h2>
+<p>Lambda runs your code in response to events, with no servers to
+manage.</p>
+<ol type="1">
+<li>Write the code in a language Lambda supports, such as Python,
+Node.js or Java. Here it is a Python script.</li>
+<li>Upload it to Lambda. Think of it as putting your code into a box in
+the cloud.</li>
+<li>Zip and upload the script's dependencies, built in a
+Linux-compatible environment.</li>
+<li>Test and run the function.</li>
+</ol>
+<p>The full walkthrough is in <a
+href="#blog-lambda-python-automation">How to automate Python scripts
+using AWS Lambda</a>.</p>
+<h2>Amazon EC2:
+building and testing dependencies</h2>
+<p>Lambda runs on Linux, so any dependency your code uses must be built
+for Linux, otherwise you get runtime errors when you test the
+function.</p>
+<ol type="1">
+<li>Launch an EC2 instance (a computer that lives in the cloud) with an
+Amazon Linux 2 AMI.</li>
+<li>Install the dependencies on the instance.</li>
+<li>Create the deployment package and zip it, then copy it to an S3
+bucket or download it with the AWS CLI.</li>
+</ol>
+<p>Other ways to build Linux-ready dependencies are covered in <a
+href="#blog-lambda-dependencies">Ensuring your dependencies are AWS
+Lambda ready</a>.</p>
+<h2>Amazon CloudWatch: scheduling</h2>
+<p>To run the function on a schedule:</p>
+<ol type="1">
+<li>On the Lambda function page, click <strong>Add
+trigger</strong>.</li>
+<li>Choose <strong>EventBridge (CloudWatch Events)</strong> as the
+source.</li>
+<li>Create a new rule with a name, description and schedule expression,
+then click <strong>Add</strong>.</li>
+</ol>
+<h2>Summary</h2>
+<ul>
+<li><strong>AWS Lambda</strong> runs the script without server
+management.</li>
+<li><strong>Amazon EC2</strong> builds and tests dependencies in a Linux
+environment.</li>
+<li><strong>Amazon CloudWatch</strong> schedules the runs.</li>
+</ul>
+<p>Together they make a small, reliable pipeline that removes manual
+work and leaves more time for analysis.</p>
+
+    </div>
+    <a class="back" href="#writing">← All blogs</a>
+  </article>
+
+  <article class="post" id="blog-lambda-python-automation" hidden>
+    <a class="back" href="#writing">← All blogs</a>
+    <h1>How to automate Python scripts using AWS Lambda</h1>
+    <div class="byline">Priyanka Andrew Charan · AWS · 4 min read</div>
+    <div class="post-body">
+<p>AWS Lambda lets you run Python code without managing servers. You can
+set Lambda to run in response to specific events, which makes it a good
+fit for automating tasks like updating data in Snowflake. In this guide
+I walk through how to set up and test a simple Python script in
+Lambda.</p>
+<h2>Step 1: Write your Python
+script</h2>
+<p>First, you need a Python script that does the work, whether that is
+interacting with Snowflake or any other service. Here is an example
+handler that calls an external API and returns the result. You can
+modify it to fit your use case, for example to update rows in a
+Snowflake table.</p>
+<p><img loading="lazy" src="img/lambda-python-automation/image1.jpg"
+alt="Example Lambda handler in Python" /></p>
+<h2>Step 2: Upload your
+script to AWS Lambda</h2>
+<p>Lambda is like a box in the cloud where your code lives and runs when
+triggered by an event.</p>
+<ol type="1">
+<li><strong>Create a new Lambda function.</strong> In the AWS Lambda
+console, create a new function and choose <strong>Author from
+scratch</strong>. Give it a relevant name, like
+<code>snowflake-update-function</code>, pick Python 3.8 or later as the
+runtime, and give it a basic execution role.</li>
+<li><strong>Upload your Python script.</strong> Paste the script
+directly into the editor, or upload it as a .zip file. Use the .zip
+approach if you have dependencies such as the Snowflake connector.</li>
+</ol>
+<h2>Step 3: Package
+your script with dependencies</h2>
+<p>Lambda doesn't include libraries like
+<code>snowflake-connector-python</code>, so you need to ship them in a
+.zip file along with your script.</p>
+<pre class="bash"><code>mkdir my_lambda_package
+cd my_lambda_package
+pip install snowflake-connector-python -t .
+cp ../lambda_snowflake_update.py .
+zip -r9 my_lambda_package.zip .</code></pre>
+<p>Then, in the Lambda console under <strong>Function code</strong>,
+choose <strong>Upload a .zip file</strong> and upload
+<code>my_lambda_package.zip</code>. Build the package on Amazon Linux so
+compiled libraries match the Lambda runtime; see <a
+href="#blog-lambda-dependencies">Ensuring your dependencies are AWS
+Lambda ready</a>.</p>
+<h2>Step 4: Test your Lambda
+function</h2>
+<p>Lambda functions are event-driven, so create a test event to simulate
+the data your function will process.</p>
+<ol type="1">
+<li>In the Lambda console, click <strong>Test</strong>, select
+<strong>Create new test event</strong> and name it, for example
+<code>TestSnowflakeUpdate</code>.</li>
+<li>Use sample JSON like this, replacing the placeholders with values
+for your table:</li>
+</ol>
+<pre class="json"><code>{
+  &quot;table_name&quot;: &quot;your_table_name&quot;,
+  &quot;column_to_update&quot;: &quot;your_column_name&quot;,
+  &quot;new_value&quot;: &quot;new_value_for_column&quot;,
+  &quot;condition_column&quot;: &quot;your_condition_column&quot;,
+  &quot;condition_value&quot;: &quot;value_to_match&quot;
+}</code></pre>
+<ol start="3" type="1">
+<li>Click <strong>Test</strong> again to run the function. If everything
+works you should see a success message like:</li>
+</ol>
+<pre class="json"><code>{
+  &quot;statusCode&quot;: 200,
+  &quot;body&quot;: &quot;Successfully updated 1 row(s).&quot;
+}</code></pre>
+<ol start="4" type="1">
+<li>Check the logs. Lambda logs everything to CloudWatch, so you can
+debug and monitor execution in <strong>CloudWatch Logs</strong>.</li>
+</ol>
+<h2>Step 5: Set
+permissions and monitor execution</h2>
+<ul>
+<li><strong>IAM role permissions.</strong> Make sure the role Lambda
+uses can access every resource it needs. If Snowflake is reached through
+a VPC, configure the function's VPC settings.</li>
+<li><strong>Monitoring.</strong> CloudWatch shows how often the function
+runs, how long it takes and any errors.</li>
+</ul>
+<h2>Summary</h2>
+<ol type="1">
+<li><strong>Write the script</strong> that does what you need, for
+example update a Snowflake table.</li>
+<li><strong>Upload it to Lambda</strong>, directly or as a .zip with its
+dependencies.</li>
+<li><strong>Test it</strong> with a test event that simulates real
+input.</li>
+<li><strong>Set permissions</strong> so the function can reach external
+resources.</li>
+<li><strong>Monitor and iterate</strong> with CloudWatch.</li>
+</ol>
+<p>Lambda scales automatically and handles the infrastructure, so you
+can focus on the logic.</p>
+
+    </div>
+    <a class="back" href="#writing">← All blogs</a>
+  </article>
+
+  <article class="post" id="blog-lambda-dependencies" hidden>
+    <a class="back" href="#writing">← All blogs</a>
+    <h1>Ensuring your dependencies are AWS Lambda ready</h1>
+    <div class="byline">Priyanka Andrew Charan · AWS · 3 min read</div>
+    <div class="post-body">
+<p>When you deploy code to AWS Lambda, your dependencies have to be
+compatible with the Lambda environment, which runs on Amazon Linux. Here
+is how to get it right.</p>
+<h2>1. Develop in the right
+environment</h2>
+<p>To avoid compatibility issues, build and package your dependencies in
+an environment that mirrors Lambda's Amazon Linux.</p>
+<h3 id="option-a-docker">Option A: Docker</h3>
+<ol type="1">
+<li><strong>Start an Amazon Linux container.</strong> This gives you a
+local environment that matches Lambda.</li>
+</ol>
+<pre class="dockerfile"><code>FROM amazonlinux:2
+RUN yum install -y python3-pip</code></pre>
+<ol start="2" type="1">
+<li><strong>Install your dependencies inside the
+container.</strong></li>
+</ol>
+<pre class="bash"><code>docker run -it amazonlinux:2 /bin/bash
+yum install -y python3-pip
+pip3 install --target /lambda/ python-package</code></pre>
+<ol start="3" type="1">
+<li><strong>Copy the files out of the container.</strong></li>
+</ol>
+<pre class="bash"><code>docker cp &lt;container_id&gt;:/lambda /path/to/your/project</code></pre>
+<ol start="4" type="1">
+<li><strong>Zip it up</strong> with your Lambda function code.</li>
+</ol>
+<h3 id="option-b-amazon-ec2">Option B: Amazon EC2</h3>
+<ol type="1">
+<li>Launch an EC2 instance with an Amazon Linux 2 AMI.</li>
+<li>SSH into the instance and install your dependencies:</li>
+</ol>
+<pre class="bash"><code>yum install -y python3-pip
+pip3 install --target /lambda/ python-package</code></pre>
+<ol start="3" type="1">
+<li>Create the deployment package:</li>
+</ol>
+<pre class="bash"><code>zip -r function.zip /lambda/ your_lambda_function.py</code></pre>
+<h2>2. Use Lambda layers</h2>
+<p>If several functions use the same libraries, package them once as a
+layer:</p>
+<ol type="1">
+<li><strong>Build the layer.</strong> Zip your dependencies with the
+folder structure <code>python/lib/pythonX.X/site-packages/</code>, where
+X.X matches your Python version.</li>
+<li><strong>Publish the layer.</strong> In the Lambda console, create a
+new layer and upload the zip.</li>
+<li><strong>Attach the layer</strong> to each function that needs
+it.</li>
+</ol>
+<h2>3. Test before you go live</h2>
+<ol type="1">
+<li><strong>Test locally</strong> in Docker or on the EC2 instance, the
+same environment the code will run in.</li>
+<li><strong>Deploy and validate.</strong> Watch the logs and metrics
+after deploying to catch issues early.</li>
+</ol>
+<h2>Summary</h2>
+<p>Build in an Amazon Linux environment, share common libraries through
+layers, and test in the same environment you deploy to. That avoids the
+most common Lambda packaging errors.</p>
+
+    </div>
+    <a class="back" href="#writing">← All blogs</a>
+  </article>
+
+  <footer>Priyanka Andrew Charan · Business Intelligence Lead</footer>
+</div>
+
+<script>
+(function () {
+  const posts = Array.from(document.querySelectorAll("article.post[id^='blog-']"));
+  const main = document.getElementById("home");
+  function route() {
+    const id = location.hash.slice(1);
+    const match = posts.find(p => p.id === id);
+    posts.forEach(p => { p.hidden = p !== match; });
+    main.hidden = !!match;
+    if (match) window.scrollTo(0, 0);
+    else if (id) { const t = document.getElementById(id); if (t) t.scrollIntoView(); }
+  }
+  window.addEventListener("hashchange", route);
+  route();
+
+  const btn = document.getElementById("copy-email");
+  if (btn) btn.addEventListener("click", function () {
+    const text = document.getElementById("email").textContent.trim();
+    const done = () => { btn.textContent = "Copied"; setTimeout(() => (btn.textContent = "Copy email"), 1800); };
+    const select = () => {
+      const r = document.createRange(); r.selectNodeContents(document.getElementById("email"));
+      const s = window.getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = "Selected, press Cmd+C";
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, select);
+    } else { select(); }
+  });
+})();
+</script>
+</body>
+</html>
