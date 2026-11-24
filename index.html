@@ -291,6 +291,9 @@ section.block { border-top: 0; }
 .contact-card h2 { color: var(--hero-ink); }
 .contact-card .prose { color: var(--hero-muted); }
 .contact-card .email { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.25); color: var(--hero-ink); }
+.email-btn { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; user-select: auto; cursor: pointer; }
+.contact-card .email-btn { background: #F2C46D; border-color: #F2C46D; color: #10262B; font-weight: 600; }
+.contact-card .email-btn:hover { background: #F7D998; }
 .contact-card button.copy { color: #F2C46D; border-color: #F2C46D; }
 .contact-card .btn.ghost { color: var(--hero-ink); border-color: rgba(255,255,255,.35); }
 
@@ -570,7 +573,7 @@ section.block { border-top: 0; }
         <h2>Let's talk data</h2>
         <p class="prose">I hold an open work permit and am relocating to Ontario, Canada in January 2027. I'm happy to talk about BI leadership roles, Databricks and Tableau work, or the projects above.</p>
         <div class="contact-row">
-          <span class="email" id="email">priyankacharan5@gmail.com</span>
+          <a class="email email-btn" id="email" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=priyankacharan5@gmail.com" target="_blank" rel="noopener" title="Write to me in Gmail"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>priyankacharan5@gmail.com</a>
           <a class="btn ghost" href="https://www.linkedin.com/in/priyanka-charan/" target="_blank" rel="noopener">LinkedIn</a>
           <a class="btn ghost" href="https://github.com/PriyankaCharan" target="_blank" rel="noopener">GitHub</a>
           <a class="btn ghost" href="https://public.tableau.com/app/profile/priyanka.charan/vizzes" target="_blank" rel="noopener">Tableau Public</a>
